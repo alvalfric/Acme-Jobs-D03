@@ -300,5 +300,7 @@
 		<property name="spamWordsEs" value="sexo, extremo, viagra, cialis, nigeria, has ganado, millon de dolares"/>
 		<property name="spamThreshold" value="1.0"/>
 	</bean>
+	
+	
 
 </beans>
