@@ -15,5 +15,7 @@ administrator.customisation-parameter.list.label.spamThreshold = Límite de Spam
 administrator.customisation-parameter.form.label.spamWordsEn = Palabras Spam (Inglés):
 administrator.customisation-parameter.form.label.spamWordsEs = Palabras Spam (Español):
 administrator.customisation-parameter.form.label.spamThreshold = Límite de Spam:
+
+administrator.customisation-parameter.form.button.update = Actualizar
 	
 administrator.customisation-parameter.form.button.return = Volver
