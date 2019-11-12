@@ -31,7 +31,7 @@ public class AdministratorCustomisationParameterShowService implements AbstractS
 		CustomisationParameter result;
 		int id;
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		result = this.repository.findOneCustomisationParameterById(id);
 		return result;
 
 	}

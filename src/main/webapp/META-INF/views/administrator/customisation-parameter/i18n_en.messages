@@ -15,5 +15,7 @@ administrator.customisation-parameter.list.label.spamThreshold = Spam Threshold
 administrator.customisation-parameter.form.label.spamWordsEn = Spam Words (English):
 administrator.customisation-parameter.form.label.spamWordsEs = Spam Words (Spanish):
 administrator.customisation-parameter.form.label.spamThreshold = Spam Threshold:
+
+administrator.customisation-parameter.form.button.update = Update
 	
 administrator.customisation-parameter.form.button.return = Return
