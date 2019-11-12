@@ -62,6 +62,8 @@ master.menu.administrator = Administrador
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.dashboard = Panel de control
 master.menu.administrator.customisation-parameter = Parametros de Customización
+master.menu.administrator.announcement= Anuncios
+master.menu.administrator.announcement.create = Crear Anuncio
 master.menu.administrator.shutdown = Parar el sistema
 
 # master.menu.authenticated ###################################################
