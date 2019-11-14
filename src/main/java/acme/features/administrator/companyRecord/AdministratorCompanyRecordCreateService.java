@@ -35,7 +35,7 @@ public class AdministratorCompanyRecordCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "starScore");
+		request.bind(entity, errors);
 
 	}
 

@@ -66,6 +66,7 @@ master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.customisation-parameter = Customisation Parameters
 master.menu.administrator.announcement = Announcements
 master.menu.administrator.announcement.create = Create Announcement
+master.menu.administrator.company-records = Company Records
 master.menu.administrator.shutdown = Shut down
 
 # master.menu.authenticated ###################################################

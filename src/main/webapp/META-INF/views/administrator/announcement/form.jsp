@@ -40,6 +40,5 @@
 		code="administrator.announcement.form.button.delete"
 		action="/administrator/announcement/delete"/>
 	
-	
 	<acme:form-return code="administrator.announcement.form.button.return"/>
 </acme:form>
