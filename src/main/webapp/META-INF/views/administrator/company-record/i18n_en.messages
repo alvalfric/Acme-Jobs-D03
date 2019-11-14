@@ -18,13 +18,16 @@ authenticated.company-record.form.label.contactEmail = Email:
 authenticated.company-record.form.label.incorporated = Incorporated:
 authenticated.company-record.form.label.starScore = Score:
 
-authenticated.company-record.list.label.companyName = Company Name:
-authenticated.company-record.list.label.sector = Sector:
-authenticated.company-record.list.label.CEOName = CEO Name:
-authenticated.company-record.list.label.activitiesDescription = Activities Description:
-authenticated.company-record.list.label.website = Website:
-authenticated.company-record.list.label.contactPhone = Phone:
-authenticated.company-record.list.label.contactEmail = Email:
-authenticated.company-record.list.label.starScore = Score:
+administrator.company-record.list.label.companyName = Company Name:
+administrator.company-record.list.label.sector = Sector:
+administrator.company-record.list.label.CEOName = CEO Name:
+administrator.company-record.list.label.activitiesDescription = Activities Description:
+administrator.company-record.list.label.website = Website:
+administrator.company-record.list.label.contactPhone = Phone:
+administrator.company-record.list.label.contactEmail = Email:
+administrator.company-record.list.label.starScore = Score:
 
+administrator.company-record.form.button.create = Add new Company Record
+administrator.company-record.form.button.update = Update
+administrator.company-record.form.button.delete = Delete
 authenticated.company-record.form.button.return = Return

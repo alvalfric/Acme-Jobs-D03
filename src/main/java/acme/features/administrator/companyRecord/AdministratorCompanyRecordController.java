@@ -32,15 +32,14 @@ public class AdministratorCompanyRecordController extends AbstractController<Adm
 
 	@Autowired
 	private AdministratorCompanyRecordListService	listService;
-
 	@Autowired
 	private AdministratorCompanyRecordShowService	showService;
-
 	@Autowired
 	private AdministratorCompanyRecordUpdateService	updateService;
-
 	@Autowired
 	private AdministratorCompanyRecordCreateService	createService;
+	@Autowired
+	private AdministratorCompanyRecordDeleteService	deleteService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -51,6 +50,7 @@ public class AdministratorCompanyRecordController extends AbstractController<Adm
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 
 }
