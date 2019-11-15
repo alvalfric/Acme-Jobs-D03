@@ -64,6 +64,8 @@ master.menu.administrator.dashboard = Panel de control
 master.menu.administrator.customisation-parameter = Parametros de Customización
 master.menu.administrator.announcement= Anuncios
 master.menu.administrator.announcement.create = Crear Anuncio
+master.menu.administrator.challenge= Desafios
+master.menu.administrator.challenge.create = Crear Desafio
 master.menu.administrator.shutdown = Parar el sistema
 
 # master.menu.authenticated ###################################################
