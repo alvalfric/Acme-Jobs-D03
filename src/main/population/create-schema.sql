@@ -220,6 +220,8 @@
 
     alter table `offer` 
        add constraint UK_iex7e8fs0fh89yxpcnm1orjkm unique (`ticker`);
+create index IDX59csh7fiv5n9l4r16yjtedia0 on `requests` (`id`);
+create index IDX2ijmvvrwi2t1isu2m2ncm5qn1 on `requests` (`ticker`);
 
     alter table `requests` 
        add constraint UK_5v1h0kdr8vcps4i9e55k5gnc8 unique (`ticker`);
