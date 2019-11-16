@@ -67,6 +67,20 @@ public class AdministratorInvestorRecordUpdateService implements AbstractUpdateS
 		assert entity != null;
 		assert errors != null;
 
+		if (!errors.hasErrors("investorName")) {
+			errors.state(request, !entity.getInvestorName().isEmpty(), "investorName", "javax.validation.constraints.NotBlank.message");
+		}
+		if (!errors.hasErrors("sector")) {
+			errors.state(request, !entity.getSector().isEmpty(), "sector", "javax.validation.constraints.NotBlank.message");
+		}
+		if (!errors.hasErrors("investingStatement")) {
+			errors.state(request, !entity.getInvestingStatement().isEmpty(), "investingStatement", "javax.validation.constraints.NotBlank.message");
+		}
+		if (entity.getStars() != null && !errors.hasErrors("stars")) {
+			Double stars = entity.getStars();
+			errors.state(request, stars >= 0 && stars <= 5, "stars", "org.hibernate.validator.constraints.Range.message", 0, 5);
+		}
+
 	}
 
 	@Override
