@@ -69,6 +69,9 @@ master.menu.administrator.announcement.create = Create Announcement
 master.menu.administrator.challenge = Challenges
 master.menu.administrator.challenge.create = Create Challenge
 master.menu.administrator.company-records = Company Records
+master.menu.administrator.investorRecords = Investor Records
+master.menu.administrator.investorRecord.create = Create Investor Record
+
 
 master.menu.administrator.shutdown = Shut down
 
