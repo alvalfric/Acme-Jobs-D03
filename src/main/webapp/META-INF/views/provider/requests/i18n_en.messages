@@ -1,0 +1,14 @@
+provider.requests.form.label.title = Title: 
+provider.requests.form.label.deadline = Deadline: 
+provider.requests.form.label.text = Text: 
+provider.requests.form.label.reward = Reward: 
+provider.requests.form.label.ticker = Ticker: 
+provider.requests.form.label.confirm = Confirm
+provider.requests.form.button.create = Create
+provider.requests.form.button.return = Return
+
+provider.requests.error.duplicated-ticker = This ticker is taken
+provider.requests.error.must-confirm = You must confirm before creating
+provider.requests.error.reward-null = The reward can't be null
+provider.requests.error.reward-not-euro = The currency must be euro ("€" or "EUR")
+provider.requests.error.null-deadline = Deadline mustn't be null

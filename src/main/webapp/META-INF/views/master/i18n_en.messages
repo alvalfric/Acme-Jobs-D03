@@ -90,6 +90,7 @@ master.menu.authenticated.investorRecord.list = Investor Records
 
 master.menu.provider = Provider
 master.menu.provider.favourite-link = Favourite link
+master.menu.provider.requests.create = Create Request
 
 # master.menu.consumer ##########################################################
 
