@@ -68,6 +68,7 @@ master.menu.administrator.challenge= Desafios
 master.menu.administrator.challenge.create = Crear Desafio
 master.menu.administrator.company-records = Registros de Compañias
 master.menu.administrator.investorRecords = Registros de Inversores
+master.menu.administrator.investorRecord.create = Crear Registro de Inversor
 
 master.menu.administrator.shutdown = Parar el sistema
 

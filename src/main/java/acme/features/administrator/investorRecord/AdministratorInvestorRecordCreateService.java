@@ -51,6 +51,9 @@ public class AdministratorInvestorRecordCreateService implements AbstractCreateS
 		InvestorRecord result;
 
 		result = new InvestorRecord();
+		result.setInvestingStatement("Statement");
+		result.setInvestorName("Name");
+		result.setSector("Sector");
 
 		return result;
 	}
@@ -60,6 +63,7 @@ public class AdministratorInvestorRecordCreateService implements AbstractCreateS
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
 	}
 
 	@Override
