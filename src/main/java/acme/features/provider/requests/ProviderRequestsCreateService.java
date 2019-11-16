@@ -99,7 +99,7 @@ public class ProviderRequestsCreateService implements AbstractCreateService<Prov
 
 		if (!errors.hasErrors("reward")) {
 			errors.state(request, !entity.getReward().equals(null), "reward", "provider.requests.error.reward-null");
-			errors.state(request, entity.getReward().getCurrency().equals("€") || entity.getReward().getCurrency().equals("EUR"), "reward", "provider.requests.error.reward-not-euro");
+			errors.state(request, entity.getReward().getCurrency().equals("€"), "reward", "provider.requests.error.reward-not-euro");
 		}
 
 		errors.state(request, !entity.getTitle().equals(null), "title", "provider.requests.error.title-null");
