@@ -86,6 +86,7 @@ master.menu.authenticated.company-records = Registros de Empresas
 
 master.menu.provider = Proveedor
 master.menu.provider.favourite-link = Enlace favorito
+master.menu.provider.requests.create = Crear Oferta
 
 # master.menu.consumer ##########################################################
 

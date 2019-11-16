@@ -1,0 +1,14 @@
+provider.requests.form.label.title = Título: 
+provider.requests.form.label.deadline = Fecha Límite: 
+provider.requests.form.label.text = Texto: 
+provider.requests.form.label.reward = Recompensa: 
+provider.requests.form.label.ticker = Ticker: 
+provider.requests.form.label.confirm = Confirmar
+provider.requests.form.button.create = Crear
+provider.requests.form.button.return = Volver
+
+provider.requests.error.duplicated-ticker = Este ticker ya está cogido
+provider.requests.error.must-confirm = Debes confirmar antes de crear
+provider.requests.error.reward-null = La recompensa no puede ser nula
+provider.requests.error.reward-not-euro = La divisa debe ser el euro ("€" or "EUR")
+provider.requests.error.null-deadline = La fecha límite no debe ser nula
