@@ -7,8 +7,12 @@ provider.requests.form.label.confirm = Confirm
 provider.requests.form.button.create = Create
 provider.requests.form.button.return = Return
 
+provider.requests.error.ticker-null = Ticker can't be null
 provider.requests.error.duplicated-ticker = This ticker is taken
 provider.requests.error.must-confirm = You must confirm before creating
 provider.requests.error.reward-null = The reward can't be null
-provider.requests.error.reward-not-euro = The currency must be euro ("€" or "EUR")
-provider.requests.error.null-deadline = Deadline mustn't be null
+provider.requests.error.reward-not-euro = The currency must be euro ("€")
+provider.requests.error.wrong-deadline = Deadline can't be null and must be at least one day ahead
+provider.requests.error.minimum-deadline = Deadline must be at least one day ahead
+provider.requests.error.title-null = Title can't be null
+provider.requests.error.text-null = Text can't be null
