@@ -25,7 +25,7 @@ public class ConsumerOfferCreateService implements AbstractCreateService<Consume
 	ConsumerOfferRepository repository;
 
 
-	// AbstractCreateService<Provider, Requests> interface ---------------------
+	// AbstractCreateService<Consumer, Offer> interface ---------------------
 
 	@Override
 	public boolean authorise(final Request<Offer> request) {
