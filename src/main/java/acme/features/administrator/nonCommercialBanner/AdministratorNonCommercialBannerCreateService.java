@@ -63,6 +63,17 @@ public class AdministratorNonCommercialBannerCreateService implements AbstractCr
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		String regexpurl = "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)";
+
+		if (!errors.hasErrors("slogan")) {
+			errors.state(request, !entity.getSlogan().isEmpty(), "slogan", "javax.validation.constraints.NotBlank.message");
+		}
+		if (!errors.hasErrors("targetURL")) {
+			errors.state(request, !entity.getTargetURL().matches(regexpurl), "targetURL", "javax.validation.constraints.Pattern.message", regexpurl);
+		}
+		if (!errors.hasErrors("picture")) {
+			errors.state(request, !entity.getTargetURL().matches(regexpurl), "picture", "javax.validation.constraints.Pattern.message", regexpurl);
+		}
 
 	}
 
