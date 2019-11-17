@@ -1,7 +1,12 @@
+
 package acme.entities.offers;
+
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -19,6 +24,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "id"), @Index(columnList = "ticker")
+})
 public class Offer extends DomainEntity {
 
 	//Serialisation identifier ----------------------------------------
