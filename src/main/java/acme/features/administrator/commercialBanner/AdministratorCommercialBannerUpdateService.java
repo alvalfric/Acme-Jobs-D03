@@ -1,5 +1,5 @@
 
-package acme.features.administrator.commercialBanners;
+package acme.features.administrator.commercialBanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,16 +9,18 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
-import acme.framework.services.AbstractCreateService;
+import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class AdministratorCommercialBannerCreateService implements AbstractCreateService<Administrator, CommercialBanner> {
+public class AdministratorCommercialBannerUpdateService implements AbstractUpdateService<Administrator, CommercialBanner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	private AdministratorCommercialBannerRepository repository;
 
+
+	// AbstractShowService<Authenticated, Announcement> interface -------------
 
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
@@ -47,14 +49,14 @@ public class AdministratorCommercialBannerCreateService implements AbstractCreat
 	}
 
 	@Override
-	public CommercialBanner instantiate(final Request<CommercialBanner> request) {
-		CommercialBanner result;
+	public CommercialBanner findOne(final Request<CommercialBanner> request) {
+		assert request != null;
 
-		result = new CommercialBanner();
-		result.setCreditCard("0000000000000000");
-		result.setPicture("http://localhost:8080/acme-jobs");
-		result.setSlogan("slogan");
-		result.setTargetURL("http://localhost:8080/acme-jobs");
+		CommercialBanner result;
+		int id;
+
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneById(id);
 
 		return result;
 	}
@@ -68,7 +70,10 @@ public class AdministratorCommercialBannerCreateService implements AbstractCreat
 	}
 
 	@Override
-	public void create(final Request<CommercialBanner> request, final CommercialBanner entity) {
+	public void update(final Request<CommercialBanner> request, final CommercialBanner entity) {
+		assert request != null;
+		assert entity != null;
+
 		this.repository.save(entity);
 	}
 

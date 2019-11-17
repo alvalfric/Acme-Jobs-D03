@@ -1,5 +1,5 @@
 
-package acme.features.administrator.commercialBanners;
+package acme.features.administrator.commercialBanner;
 
 import javax.annotation.PostConstruct;
 

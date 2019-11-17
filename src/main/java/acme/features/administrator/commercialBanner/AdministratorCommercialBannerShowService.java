@@ -1,18 +1,17 @@
 
-package acme.features.administrator.commercialBanners;
+package acme.features.administrator.commercialBanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banners.CommercialBanner;
-import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
-import acme.framework.services.AbstractDeleteService;
+import acme.framework.services.AbstractShowService;
 
 @Service
-public class AdministratorCommercialBannerDeleteService implements AbstractDeleteService<Administrator, CommercialBanner> {
+public class AdministratorCommercialBannerShowService implements AbstractShowService<Administrator, CommercialBanner> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -20,21 +19,12 @@ public class AdministratorCommercialBannerDeleteService implements AbstractDelet
 	private AdministratorCommercialBannerRepository repository;
 
 
+
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
 
 		return true;
-	}
-
-	@Override
-	public void bind(final Request<CommercialBanner> request, final CommercialBanner entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-		request.bind(entity, errors);
-
 	}
 
 	@Override
@@ -57,22 +47,6 @@ public class AdministratorCommercialBannerDeleteService implements AbstractDelet
 		result = this.repository.findOneById(id);
 
 		return result;
-	}
-
-	@Override
-	public void validate(final Request<CommercialBanner> request, final CommercialBanner entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-	}
-
-	@Override
-	public void delete(final Request<CommercialBanner> request, final CommercialBanner entity) {
-		assert request != null;
-		assert entity != null;
-
-		this.repository.delete(entity);
 	}
 
 }
