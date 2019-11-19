@@ -31,3 +31,4 @@ administrator.company-record.form.button.create = Add new Company Record
 administrator.company-record.form.button.update = Update
 administrator.company-record.form.button.delete = Delete
 authenticated.company-record.form.button.return = Return
+
