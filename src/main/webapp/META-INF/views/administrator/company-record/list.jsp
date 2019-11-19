@@ -21,7 +21,3 @@
 	<acme:list-column code="administrator.company-record.list.label.sector" path="sector" width="15%"/>
 	<acme:list-column code="administrator.company-record.list.label.activitiesDescription" path="activitiesDescription" width="60%"/>
 </acme:list>
-
-<acme:form>
-		<acme:form-submit code="administrator.company-record.form.button.create" action="/administrator/company-record/create"/>
-</acme:form>

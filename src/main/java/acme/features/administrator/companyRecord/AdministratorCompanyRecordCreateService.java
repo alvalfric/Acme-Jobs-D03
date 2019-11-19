@@ -62,10 +62,60 @@ public class AdministratorCompanyRecordCreateService implements AbstractCreateSe
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		boolean isDuplicated, websiteOK, contactPhoneOK, conctatEmailOK;
+		String regexpUrl = "^(https?:\\/\\/)?(www\\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\\.)+[\\w]{2,}(\\/\\S*)?$";
+		String regexPhone = "^([+]([1-9]|[1-9][0-9]|[1-9][0-9][0-9])[\\s][(]([0-9]|[0-9][0-9]|[0-9][0-9][0-9]|[0-9][0-9][0-9][0-9])[)][\\s]\\d{6,10})$";
+		String regexEmail = "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
+
+		isDuplicated = this.repository.findOneCompanyRecordByCompanyName(entity.getCompanyName()) != null;
+		errors.state(request, !isDuplicated, "companyName", "administrator.company-record.error.duplicated");
+
+		websiteOK = entity.getWebsite().matches(regexpUrl);
+		errors.state(request, websiteOK, "website", "administrator.company-record.error.website", regexpUrl);
+
+		contactPhoneOK = entity.getContactPhone().matches(regexPhone);
+		errors.state(request, contactPhoneOK, "contactPhone", "administrator.company-record.error.contact-phone", regexPhone);
+
+		conctatEmailOK = entity.getContactEmail().matches(regexEmail);
+		errors.state(request, conctatEmailOK, "contactEmail", "administrator.company-record.error.contact-email", regexEmail);
+
+		if (!errors.hasErrors("companyName")) {
+			errors.state(request, !entity.getCompanyName().isEmpty(), "companyName", "administrator.company-record.error.NotBlank");
+		}
+		if (!errors.hasErrors("sector")) {
+			errors.state(request, !entity.getSector().isEmpty(), "sector", "administrator.company-record.error.NotBlank");
+		}
+		if (!errors.hasErrors("CEOName")) {
+			errors.state(request, !entity.getCEOName().isEmpty(), "CEOName", "administrator.company-record.error.NotBlank");
+		}
+		if (!errors.hasErrors("activitiesDescription")) {
+			errors.state(request, !entity.getActivitiesDescription().isEmpty(), "activitiesDescription", "administrator.company-record.error.NotBlank");
+		}
+		if (!errors.hasErrors("website")) {
+			errors.state(request, !entity.getWebsite().isEmpty(), "website", "administrator.company-record.error.NotBlank");
+		}
+		if (!errors.hasErrors("contactPhone")) {
+			errors.state(request, !entity.getContactPhone().isEmpty(), "contactPhone", "administrator.company-record.error.NotBlank");
+		}
+		if (!errors.hasErrors("contactEmail")) {
+			errors.state(request, !entity.getContactEmail().isEmpty(), "contactEmail", "administrator.company-record.error.NotBlank");
+		}
+		if (entity.getStarScore() != null && !errors.hasErrors("starScore")) {
+			Double stars = entity.getStarScore();
+			errors.state(request, stars >= 0.0 && stars <= 5.0, "starScore", "administrator.company-record.error.star-score", 0.0, 5.0);
+		}
 	}
 
 	@Override
 	public void create(final Request<CompanyRecord> request, final CompanyRecord entity) {
+		assert request != null;
+		assert entity != null;
+
+		if (entity.getIncorporated() == null) {
+			entity.setIncorporated(false);
+		}
+
 		this.repository.save(entity);
 	}
 
