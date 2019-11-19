@@ -25,7 +25,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "id"), @Index(columnList = "ticker")
+	@Index(columnList = "id, deadline"), @Index(columnList = "ticker, deadline"), @Index(columnList = "deadline")
 })
 public class Offer extends DomainEntity {
 
