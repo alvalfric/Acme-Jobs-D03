@@ -83,8 +83,8 @@ public class ConsumerOfferCreateService implements AbstractCreateService<Consume
 		Date minimumDeadline;
 		boolean isConfirmed;
 
+		errors.state(request, !entity.getTicker().isEmpty(), "ticker", "consumer.offer.error.ticker-null");
 		if (!errors.hasErrors("ticker")) {
-			errors.state(request, !entity.getTicker().equals(null), "ticker", "consumer.offer.error.ticker-null");
 			existing = this.repository.findOneByTicker(entity.getTicker());
 			errors.state(request, existing == null, "ticker", "consumer.offer.error.duplicated-ticker");
 		}
@@ -105,8 +105,8 @@ public class ConsumerOfferCreateService implements AbstractCreateService<Consume
 			errors.state(request, entity.getRewardMin().getAmount() <= entity.getRewardMax().getAmount(), "rewardMin", "consumer.offer.error.rewardMin-too-big");
 		}
 
-		errors.state(request, !entity.getTitle().equals(null), "title", "consumer.offer.error.title-null");
-		errors.state(request, !entity.getText().equals(null), "text", "consumer.offer.error.text-null");
+		errors.state(request, !entity.getTitle().isEmpty(), "title", "consumer.offer.error.title-null");
+		errors.state(request, !entity.getText().isEmpty(), "text", "consumer.offer.error.text-null");
 
 	}
 
