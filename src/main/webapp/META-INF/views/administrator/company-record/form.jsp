@@ -22,9 +22,9 @@
 	<acme:form-textbox code="authenticated.company-record.form.label.CEOName" path="CEOName"/>
 	<acme:form-textarea code="authenticated.company-record.form.label.activitiesDescription" path="activitiesDescription"/>		
 	<acme:form-url code="authenticated.company-record.form.label.website" path="website"/>		
-	<acme:form-textbox code="authenticated.company-record.form.label.contactPhone" path="contactPhone"/>		
+	<acme:form-textbox code="authenticated.company-record.form.label.contactPhone" path="contactPhone" placeholder="+123 (1234) 123456"/>		
 	<acme:form-textbox code="authenticated.company-record.form.label.contactEmail" path="contactEmail"/>
-	<acme:form-double code="authenticated.company-record.form.label.starScore" path="starScore"/>				
+	<acme:form-double code="authenticated.company-record.form.label.starScore" path="starScore" placeholder="5.0"/>				
 
 	<acme:form-submit test="${command == 'show'}"
 		code="administrator.company-record.form.button.update"

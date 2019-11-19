@@ -69,6 +69,14 @@ master.menu.administrator.announcement.create = Create Announcement
 master.menu.administrator.challenge = Challenges
 master.menu.administrator.challenge.create = Create Challenge
 master.menu.administrator.company-records = Company Records
+master.menu.administrator.company-records.create = Create Company Records
+master.menu.administrator.investorRecords = Investor Records
+master.menu.administrator.investorRecord.create = Create Investor Record
+master.menu.administrator.commercialBanner = Commercial Banners
+master.menu.administrator.commercialBanner.create = Create Commercial Banners
+master.menu.administrator.nonCommercialBanner = Non-Commercial Banner
+master.menu.administrator.nonCommercialBanner.create = Create Non-Commercial Banner
+
 
 master.menu.administrator.shutdown = Shut down
 
@@ -96,6 +104,7 @@ master.menu.provider.requests.create = Create Request
 
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
+master.menu.consumer.offer.create = Create Offer
 
 # master.menu.user-account ####################################################
 

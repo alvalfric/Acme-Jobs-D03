@@ -3,6 +3,7 @@ package acme.features.provider.requests;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -79,8 +80,10 @@ public class ProviderRequestsCreateService implements AbstractCreateService<Prov
 
 		Requests existing;
 		Calendar calendar;
+		Date minimumDeadline;
 		boolean isConfirmed;
 
+		errors.state(request, !entity.getTicker().isEmpty(), "ticker", "provider.requests.error.ticker-null");
 		if (!errors.hasErrors("ticker")) {
 			existing = this.repository.findOneByTicker(entity.getTicker());
 			errors.state(request, existing == null, "ticker", "provider.requests.error.duplicated-ticker");
@@ -89,12 +92,18 @@ public class ProviderRequestsCreateService implements AbstractCreateService<Prov
 		isConfirmed = request.getModel().getBoolean("confirm");
 		errors.state(request, isConfirmed, "confirm", "provider.requests.error.must-confirm");
 
-		errors.state(request, entity.getDeadline() != null, "deadline", "provider.requests.error.null-deadline");
+		calendar = new GregorianCalendar();
+		calendar.add(Calendar.DAY_OF_MONTH, 1);
+		minimumDeadline = calendar.getTime();
+		errors.state(request, entity.getDeadline() != null && entity.getDeadline().after(minimumDeadline), "deadline", "provider.requests.error.wrong-deadline");
 
 		if (!errors.hasErrors("reward")) {
 			errors.state(request, !entity.getReward().equals(null), "reward", "provider.requests.error.reward-null");
-			errors.state(request, !entity.getReward().getCurrency().equals("€") || !entity.getReward().getCurrency().equals("EUR"), "reward", "provider.requests.error.reward-not-euro");
+			errors.state(request, entity.getReward().getCurrency().equals("€"), "reward", "provider.requests.error.reward-not-euro");
 		}
+
+		errors.state(request, !entity.getTitle().isEmpty(), "title", "provider.requests.error.title-null");
+		errors.state(request, !entity.getText().isEmpty(), "text", "provider.requests.error.text-null");
 
 	}
 

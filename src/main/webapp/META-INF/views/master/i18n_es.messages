@@ -67,6 +67,13 @@ master.menu.administrator.announcement.create = Crear Anuncio
 master.menu.administrator.challenge= Desafios
 master.menu.administrator.challenge.create = Crear Desafio
 master.menu.administrator.company-records = Registros de Compañias
+master.menu.administrator.company-records.create = Crear Registros de Compañias
+master.menu.administrator.investorRecords = Registros de Inversores
+master.menu.administrator.investorRecord.create = Crear Registro de Inversor
+master.menu.administrator.commercialBanner = Banners Comerciales
+master.menu.administrator.commercialBanner.create = Crear Banner Comercial
+master.menu.administrator.nonCommercialBanner = Banners No Comerciales
+master.menu.administrator.nonCommercialBanner.create = Crear Banner No Comercial
 
 master.menu.administrator.shutdown = Parar el sistema
 
@@ -95,6 +102,7 @@ master.menu.provider.requests.create = Crear Oferta
 
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
+master.menu.consumer.offer.create = Crear Oferta
 
 # master.menu.user-account ####################################################
 

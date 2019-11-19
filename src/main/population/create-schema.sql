@@ -217,6 +217,9 @@
     ) engine=InnoDB;
 
     insert into `hibernate_sequence` values ( 1 );
+create index IDXh7bve39okm3gjs4blcchj12j2 on `company_record` (`star_score`);
+create index IDXanjrwvq6m6tq1okafibrxssgm on `offer` (`id`);
+create index IDXcp4664f36sgqsd0ihmirt0w0 on `offer` (`ticker`);
 
     alter table `offer` 
        add constraint UK_iex7e8fs0fh89yxpcnm1orjkm unique (`ticker`);
