@@ -307,16 +307,13 @@ has v</panel_attributes>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Offer
 --
-+ companyName: String {NotBlank}
-+ sector: String {NotBlank}
-+ CEOName: String {NotBlank}
-+ activitiesDescription: String {NotBlank}
-+ website: String {URL}
-+ contactPhone: String {NotBlank}
-+ contactEmail: String {NotBlank}
-+ incorporated: boolean
-+ starScore: Double
-bg=pink</panel_attributes>
++ title: String {NotBlank}
++ creation: Date {Temporal(TIMESTAMP), Past}
++ deadline: Date {Temporal(TIMESTAMP), Future}
++ text: String {NotBlank}
++ rewardMin: Money {NotNull, Valid}
++ rewardMax: Money {NotNull, Valid}
++ ticker: String {Unique, NotBlank}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
