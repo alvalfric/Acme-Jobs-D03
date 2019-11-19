@@ -83,8 +83,8 @@ public class ProviderRequestsCreateService implements AbstractCreateService<Prov
 		Date minimumDeadline;
 		boolean isConfirmed;
 
+		errors.state(request, !entity.getTicker().isEmpty(), "ticker", "provider.requests.error.ticker-null");
 		if (!errors.hasErrors("ticker")) {
-			errors.state(request, !entity.getTicker().equals(null), "ticker", "provider.requests.error.ticker-null");
 			existing = this.repository.findOneByTicker(entity.getTicker());
 			errors.state(request, existing == null, "ticker", "provider.requests.error.duplicated-ticker");
 		}
@@ -99,11 +99,11 @@ public class ProviderRequestsCreateService implements AbstractCreateService<Prov
 
 		if (!errors.hasErrors("reward")) {
 			errors.state(request, !entity.getReward().equals(null), "reward", "provider.requests.error.reward-null");
-			errors.state(request, entity.getReward().getCurrency().equals("€") || entity.getReward().getCurrency().equals("EUR"), "reward", "provider.requests.error.reward-not-euro");
+			errors.state(request, entity.getReward().getCurrency().equals("€"), "reward", "provider.requests.error.reward-not-euro");
 		}
 
-		errors.state(request, !entity.getTitle().equals(null), "title", "provider.requests.error.title-null");
-		errors.state(request, !entity.getText().equals(null), "text", "provider.requests.error.text-null");
+		errors.state(request, !entity.getTitle().isEmpty(), "title", "provider.requests.error.title-null");
+		errors.state(request, !entity.getText().isEmpty(), "text", "provider.requests.error.text-null");
 
 	}
 
