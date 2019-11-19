@@ -12,9 +12,6 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AuthenticatedOfferRepository extends AbstractRepository {
 
-	//	Calendar calendar=new GregorianCalendar();
-	//	Date today=calendar.getTime();
-
 	@Query("select o from Offer o where o.id = ?1 and o.deadline>=current_timestamp()")
 	Offer findOneById(int id);
 

@@ -12,9 +12,6 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface ProviderRequestsRepository extends AbstractRepository {
 
-	//	Calendar calendar=new GregorianCalendar();
-	//	Date today=calendar.getTime();
-	//	Boolean todayDay=today.;
 	@Query("select r from Requests r where r.id = ?1 and r.deadline>=current_timestamp()")
 	Requests findOneById(int id);
 
