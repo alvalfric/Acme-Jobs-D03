@@ -22,3 +22,8 @@ administrator.announcement.form.button.update = Update
 administrator.announcement.form.button.delete = Delete
 administrator.announcement.form.button.create = Create
 
+
+administrator.announcement.error.NotBlank = Its cannot be null
+administrator.announcement.error.web = The website must be written in the form http://www.example.com
+
+

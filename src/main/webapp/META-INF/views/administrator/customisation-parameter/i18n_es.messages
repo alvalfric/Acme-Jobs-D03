@@ -19,3 +19,8 @@ administrator.customisation-parameter.form.label.spamThreshold = Límite de Spam
 administrator.customisation-parameter.form.button.update = Actualizar
 	
 administrator.customisation-parameter.form.button.return = Volver
+
+# error messages
+
+administrator.customisation-parameter.error.NotBlank = No puede estar vacío
+administrator.customisation-parameter.error.spamWords = Debe ser de la forma palabra,palabra,palabra (Sin espacios al principio ni al final)

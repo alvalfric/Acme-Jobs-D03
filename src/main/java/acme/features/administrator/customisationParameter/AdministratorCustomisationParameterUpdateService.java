@@ -63,6 +63,44 @@ public class AdministratorCustomisationParameterUpdateService implements Abstrac
 		assert entity != null;
 		assert errors != null;
 
+		if (!errors.hasErrors("spamThreshold")) {
+			errors.state(request, !(entity.getSpamThreshold() == null), "spamThreshold", "administrator.customisation-parameter.error.NotBlank");
+		}
+		if (!errors.hasErrors("spamWordsEn")) {
+			errors.state(request, !entity.getSpamWordsEn().isEmpty(), "spamWordsEn", "administrator.customisation-parameter.error.NotBlank");
+		}
+		if (!errors.hasErrors("spamWordsEs")) {
+			errors.state(request, !entity.getSpamWordsEs().isEmpty(), "spamWordsEs", "administrator.customisation-parameter.error.NotBlank");
+		}
+
+		if (entity.getSpamWordsEn() != null && !errors.hasErrors("spamWordsEn")) {
+			errors.state(request, this.isValidStringList(entity.getSpamWordsEn()), "spamWordsEn", "administrator.customisation-parameter.error.spamWords");
+		}
+		if (entity.getSpamWordsEs() != null && !errors.hasErrors("spamWordsEs")) {
+			errors.state(request, this.isValidStringList(entity.getSpamWordsEs()), "spamWordsEs", "administrator.customisation-parameter.error.spamWords");
+		}
+		if (entity.getSpamThreshold() != null && !errors.hasErrors("spamThreshold")) {
+			Double limit = entity.getSpamThreshold();
+			errors.state(request, limit >= 0.0 && limit <= 100.0, "spamThreshold", "administrator.customisation-parameter.error.spam-threshold", 0.0, 100.0);
+		}
+
+	}
+
+	public Boolean isValidStringList(final String s) {
+		Boolean result = true;
+		if (s.charAt(s.length() - 1) == ',' || s.charAt(s.length() - 1) == ' ' || s.charAt(0) == ',' || s.charAt(0) == ' ') {
+			result = false;
+		} else {
+			for (int i = 0; i < s.length() - 2; i++) {
+				if (s.charAt(i) == ',') {
+					if (s.charAt(i - 1) == ',' || s.charAt(i - 1) == ' ') {
+						result = false;
+						break;
+					}
+				}
+			}
+		}
+		return result;
 	}
 
 	@Override
