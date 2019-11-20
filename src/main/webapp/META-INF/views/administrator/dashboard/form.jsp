@@ -28,7 +28,7 @@
 				{
 					label : '',
 					data : [
-							5
+						<jstl:out value="${totalNumberOfAnnouncements}" escapeXml="false"/>
 					],
 					backgroundColor : [
 							'rgba(255, 99, 132, 0.2)'
