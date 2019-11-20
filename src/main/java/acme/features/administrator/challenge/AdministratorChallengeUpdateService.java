@@ -78,6 +78,9 @@ public class AdministratorChallengeUpdateService implements AbstractUpdateServic
 		if (!errors.hasErrors("title")) {
 			errors.state(request, !entity.getTitle().isEmpty(), "title", "administrator.challenge.error.notBlank");
 		}
+		if (this.repository.findOneByTitle(entity.getTitle()) != null) {
+			errors.state(request, entity.getId() == this.repository.findOneByTitle(entity.getTitle()).getId(), "title", "administrator.challenge.error.duplicated-title");
+		}
 		if (entity.getDeadline() != null) {
 			errors.state(request, entity.getDeadline().after(mes), "deadline", "administrator.challenge.error.future-dead");
 

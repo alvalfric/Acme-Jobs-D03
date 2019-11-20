@@ -73,9 +73,7 @@ public class AdministratorCompanyRecordUpdateService implements AbstractUpdateSe
 		String regexPhone = "^([+]([1-9]|[1-9][0-9]|[1-9][0-9][0-9])[\\s][(]([0-9]|[0-9][0-9]|[0-9][0-9][0-9]|[0-9][0-9][0-9][0-9])[)][\\s]\\d{6,10})$";
 		String regexEmail = "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
 
-		System.out.println(entity.getCompanyName());
-
-		if (this.repository.findOneCompanyRecordByCompanyName(entity.getCompanyName().toString()) != null) {
+		if (this.repository.findOneCompanyRecordByCompanyName(entity.getCompanyName()) != null) {
 			companyRecordId = this.repository.findOneCompanyRecordByCompanyName(entity.getCompanyName()).getId();
 			System.out.println(companyRecordId);
 			System.out.println(entity.getId());

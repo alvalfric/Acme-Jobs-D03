@@ -68,9 +68,9 @@ public class AdministratorCompanyRecordCreateService implements AbstractCreateSe
 		String regexPhone = "^([+]([1-9]|[1-9][0-9]|[1-9][0-9][0-9])[\\s][(]([0-9]|[0-9][0-9]|[0-9][0-9][0-9]|[0-9][0-9][0-9][0-9])[)][\\s]\\d{6,10})$";
 		String regexEmail = "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
 
-		isDuplicated = this.repository.findOneCompanyRecordByCompanyName(entity.getCompanyName().toString()) != null;
+		isDuplicated = this.repository.findOneCompanyRecordByCompanyName(entity.getCompanyName()) != null;
 		System.out.println(isDuplicated);
-		System.out.println(this.repository.findOneCompanyRecordByCompanyName(entity.getCompanyName()).getCompanyName());
+		System.out.println(this.repository.findOneCompanyRecordByCompanyName(entity.getCompanyName()));
 		errors.state(request, !isDuplicated, "companyName", "administrator.company-record.error.duplicated");
 
 		websiteOK = entity.getWebsite().matches(regexpUrl);
