@@ -78,7 +78,7 @@ public class AdministratorInvestorRecordUpdateService implements AbstractUpdateS
 		}
 		if (entity.getStars() != null && !errors.hasErrors("stars")) {
 			Double stars = entity.getStars();
-			errors.state(request, stars >= 0 && stars <= 5, "stars", "org.hibernate.validator.constraints.Range.message", 0, 5);
+			errors.state(request, stars >= 0 && stars <= 5, "stars", "org.hibernate.validator.constraints.Range.message", '0', '5');
 		}
 
 	}
