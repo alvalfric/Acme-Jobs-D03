@@ -22,7 +22,6 @@ import lombok.Setter;
 @Table(indexes = {
 	@Index(columnList = "deadline"), @Index(columnList = "title, deadline")
 })
-
 public class Challenge extends DomainEntity {
 
 	/**
