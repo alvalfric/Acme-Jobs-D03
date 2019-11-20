@@ -1,7 +1,9 @@
 
 package acme.features.administrator.challenge;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +35,7 @@ public class AdministratorChallengeUpdateService implements AbstractUpdateServic
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "deadline");
+		request.bind(entity, errors);
 
 	}
 
@@ -43,7 +45,7 @@ public class AdministratorChallengeUpdateService implements AbstractUpdateServic
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "description", "reward", "goal");
+		request.unbind(entity, model, "title", "description", "reward", "goal", "deadline");
 
 	}
 
@@ -64,6 +66,24 @@ public class AdministratorChallengeUpdateService implements AbstractUpdateServic
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		Calendar calendar;
+		Date mes;
+		calendar = new GregorianCalendar();
+		mes = calendar.getTime();
+
+		if (!errors.hasErrors("description")) {
+			errors.state(request, !entity.getDescription().isEmpty(), "description", "administrator.challenge.error.notBlank");
+		}
+
+		if (!errors.hasErrors("title")) {
+			errors.state(request, !entity.getTitle().isEmpty(), "title", "administrator.challenge.error.notBlank");
+		}
+		if (entity.getDeadline() != null) {
+			errors.state(request, entity.getDeadline().after(mes), "deadline", "administrator.challenge.error.future-dead");
+
+		} else {
+			errors.state(request, entity.getDeadline() != null, "deadline", "administrator.challenge.error.notBlank");
+		}
 
 	}
 
@@ -71,11 +91,6 @@ public class AdministratorChallengeUpdateService implements AbstractUpdateServic
 	public void update(final Request<Challenge> request, final Challenge entity) {
 		assert request != null;
 		assert entity != null;
-
-		Date moment;
-
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setDeadline(moment);
 		this.repository.save(entity);
 
 	}

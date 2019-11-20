@@ -12,10 +12,13 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorChallengeRepository extends AbstractRepository {
 
-	@Query("select a from Challenge a where a.id=?1")
+	@Query("select a from Challenge a where a.id=?1 and a.deadline>=current_timestamp()")
 	Challenge findOneChallengeById(int id);
 
-	@Query("select a from Challenge a  where TIMESTAMPDIFF(DAY, CURRENT_DATE(), deadline)>=0")
+	@Query("select o from Challenge o where o.title=?1 and o.deadline>=current_timestamp()")
+	Challenge findOneByTitle(String title);
+
+	@Query("select i from Challenge i where i.deadline>=current_timestamp()")
 	Collection<Challenge> findManyAll();
 
 }
