@@ -68,12 +68,20 @@ public class AdministratorCompanyRecordUpdateService implements AbstractUpdateSe
 		assert errors != null;
 
 		boolean isDuplicated, websiteOK, contactPhoneOK, conctatEmailOK;
+		int companyRecordId;
 		String regexpUrl = "^(https?:\\/\\/)?(www\\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\\.)+[\\w]{2,}(\\/\\S*)?$";
 		String regexPhone = "^([+]([1-9]|[1-9][0-9]|[1-9][0-9][0-9])[\\s][(]([0-9]|[0-9][0-9]|[0-9][0-9][0-9]|[0-9][0-9][0-9][0-9])[)][\\s]\\d{6,10})$";
 		String regexEmail = "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
 
-		isDuplicated = this.repository.findOneCompanyRecordByCompanyName(entity.getCompanyName()).getId() == entity.getId();
-		errors.state(request, isDuplicated, "companyName", "administrator.company-record.error.duplicated");
+		System.out.println(entity.getCompanyName());
+
+		if (this.repository.findOneCompanyRecordByCompanyName(entity.getCompanyName().toString()) != null) {
+			companyRecordId = this.repository.findOneCompanyRecordByCompanyName(entity.getCompanyName()).getId();
+			System.out.println(companyRecordId);
+			System.out.println(entity.getId());
+			isDuplicated = companyRecordId == entity.getId();
+			errors.state(request, isDuplicated, "companyName", "administrator.company-record.error.duplicated");
+		}
 
 		websiteOK = entity.getWebsite().matches(regexpUrl);
 		errors.state(request, websiteOK, "website", "administrator.company-record.error.website", regexpUrl);
@@ -115,6 +123,10 @@ public class AdministratorCompanyRecordUpdateService implements AbstractUpdateSe
 	public void update(final Request<CompanyRecord> request, final CompanyRecord entity) {
 		assert request != null;
 		assert entity != null;
+
+		if (entity.getIncorporated() == null) {
+			entity.setIncorporated(false);
+		}
 
 		this.repository.save(entity);
 	}

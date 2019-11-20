@@ -11,7 +11,7 @@
 administrator.challenge.list.label.title = Titulo
 administrator.challenge.list.label.deadline = Fecha Limite
 administrator.challenge.list.label.description = Descripcion
-administrator.challenge.list.label.rewardGoal = Recompensa / Gol
+administrator.challenge.list.label.rewardGoal = Recompensa / Objetivo
 
 administrator.challenge.error.notBlank = No puede estar vacio
 administrator.challenge.error.duplicated-title = Ya existe un desafio con ese nombre
@@ -21,7 +21,7 @@ administrator.challenge.form.label.title = Titulo:
 administrator.challenge.form.label.deadline = Fecha Limite:
 administrator.challenge.form.label.description =Descripcion:
 administrator.challenge.form.label.reward = Recompensa
-administrator.challenge.form.label.goal = Gol:
+administrator.challenge.form.label.goal = Objetivo:
 administrator.challenge.form.label.goal.primero= Primero
 administrator.challenge.form.label.goal.segundo= Segundo
 administrator.challenge.form.label.goal.tercero= Tercero

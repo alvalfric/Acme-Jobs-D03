@@ -18,7 +18,7 @@
 	<acme:form-textbox code="administrator.challenge.form.label.title" path="title"/>
 	<acme:form-moment  code="administrator.challenge.form.label.deadline" path="deadline" />
 	<acme:form-select code="administrator.challenge.form.label.reward" path="reward">
-		<acme:form-option code="administrator.challenge.form.label.reward.oro" value="Golde" />
+		<acme:form-option code="administrator.challenge.form.label.reward.oro" value="Gold" />
 		<acme:form-option code="administrator.challenge.form.label.reward.plata" value="Silver" />
 		<acme:form-option code="administrator.challenge.form.label.reward.bronce" value="Bronze " />
 	</acme:form-select>
