@@ -8,6 +8,7 @@ provider.requests.form.button.create = Crear
 provider.requests.form.button.return = Volver
 
 provider.requests.error.ticker-null = El ticker no puede ser nulo
+provider.requests.error.ticker-doesnt-match-regexp = El ticker debe comenzar con una "R", seguida por 4 letras mayúsculas, un guión, y 5 dígitos numéricos
 provider.requests.error.duplicated-ticker = Este ticker ya está cogido
 provider.requests.error.must-confirm = Debes confirmar antes de crear
 provider.requests.error.reward-null = La recompensa no puede ser nula
