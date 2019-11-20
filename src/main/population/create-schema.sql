@@ -217,14 +217,19 @@
     ) engine=InnoDB;
 
     insert into `hibernate_sequence` values ( 1 );
+create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
+create index IDXmgvhy7dlsdj1h0c8yb46i6by1 on `challenge` (`title`, `deadline`);
 create index IDXh7bve39okm3gjs4blcchj12j2 on `company_record` (`star_score`);
-create index IDXanjrwvq6m6tq1okafibrxssgm on `offer` (`id`);
-create index IDXcp4664f36sgqsd0ihmirt0w0 on `offer` (`ticker`);
+create index IDXk2t3uthe649ao1jllcuks0gv4 on `investor_record` (`stars`);
+create index IDX6vvdfk8bhs718y3psyx1p1p9d on `offer` (`id`, `deadline`);
+create index IDX2jcikaiqhqcdfy62sn4d3ph58 on `offer` (`ticker`, `deadline`);
+create index IDXq2o9psuqfuqmq59f0sq57x9uf on `offer` (`deadline`);
 
     alter table `offer` 
        add constraint UK_iex7e8fs0fh89yxpcnm1orjkm unique (`ticker`);
-create index IDX59csh7fiv5n9l4r16yjtedia0 on `requests` (`id`);
-create index IDX2ijmvvrwi2t1isu2m2ncm5qn1 on `requests` (`ticker`);
+create index IDX289opkba5wrr0u79x133vuui5 on `requests` (`id`, `deadline`);
+create index IDXolwqknfiuvtep9yrmfnwlnrs4 on `requests` (`ticker`, `deadline`);
+create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
 
     alter table `requests` 
        add constraint UK_5v1h0kdr8vcps4i9e55k5gnc8 unique (`ticker`);
