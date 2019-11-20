@@ -1,7 +1,9 @@
 
 package acme.features.administrator.challenge;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +36,16 @@ public class AdministratorChallengeCreateService implements AbstractCreateServic
 		assert request != null;
 
 		Challenge result = new Challenge();
+		/*
+		 * Date fecha;
+		 * fecha = new Date(System.currentTimeMillis() - 1);
+		 * result.setTitle("Title01");
+		 *
+		 * result.setDescription("Description01");
+		 * result.setGoal("First");
+		 * result.setReward("Gold");
+		 * result.setDeadline(fecha);
+		 */
 
 		return result;
 	}
@@ -44,7 +56,7 @@ public class AdministratorChallengeCreateService implements AbstractCreateServic
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "description", "reward", "goal");
+		request.unbind(entity, model, "title", "description", "reward", "goal", "deadline");
 
 	}
 
@@ -54,7 +66,7 @@ public class AdministratorChallengeCreateService implements AbstractCreateServic
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "deadline");
+		request.bind(entity, errors);
 
 	}
 
@@ -63,19 +75,34 @@ public class AdministratorChallengeCreateService implements AbstractCreateServic
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		Calendar calendar;
+		Date mes;
+		Challenge c;
 
+		calendar = new GregorianCalendar();
+		mes = calendar.getTime();
+
+		if (!errors.hasErrors("description")) {
+			errors.state(request, !entity.getDescription().isEmpty(), "description", "administrator.challenge.error.notBlank");
+		}
+
+		if (!errors.hasErrors("title")) {
+			errors.state(request, !entity.getTitle().isEmpty(), "title", "administrator.challenge.error.notBlank");
+			c = this.repository.findOneByTitle(entity.getTitle());
+			errors.state(request, c == null, "title", "administrator.challenge.error.duplicated-title");
+		}
+		if (entity.getDeadline() != null) {
+			errors.state(request, entity.getDeadline().after(mes), "deadline", "administrator.challenge.error.future-dead");
+
+		} else {
+			errors.state(request, entity.getDeadline() != null, "deadline", "administrator.challenge.error.notBlank");
+		}
 	}
 
 	@Override
 	public void create(final Request<Challenge> request, final Challenge entity) {
 		assert request != null;
 		assert entity != null;
-
-		Date moment;
-
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setDeadline(moment);
-		;
 		this.repository.save(entity);
 
 	}

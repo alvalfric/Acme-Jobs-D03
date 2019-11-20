@@ -13,6 +13,9 @@ administrator.challenge.list.label.deadline = Fecha Limite
 administrator.challenge.list.label.description = Descripcion
 administrator.challenge.list.label.rewardGoal = Recompensa / Gol
 
+administrator.challenge.error.notBlank = No puede estar vacio
+administrator.challenge.error.duplicated-title = Ya existe un desafio con ese nombre
+administrator.challenge.error.future-dead = La fecha limite debe estar en el futuro
 
 administrator.challenge.form.label.title = Titulo:
 administrator.challenge.form.label.deadline = Fecha Limite:

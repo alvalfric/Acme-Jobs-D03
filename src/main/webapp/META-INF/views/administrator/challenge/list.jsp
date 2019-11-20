@@ -5,6 +5,6 @@
 
 <acme:list>
 	<acme:list-column code="administrator.challenge.list.label.title" path="title"/>
-	<acme:list-column code="administrator.challenge.list.label.deadline" path="deadline"/>
 	<acme:list-column code="administrator.challenge.list.label.rewardGoal" path="rewardGoal"/>
+	<acme:list-column code="administrator.challenge.list.label.deadline" path="deadline"/>
 </acme:list>
