@@ -9,6 +9,7 @@ consumer.offer.form.button.create = Create
 consumer.offer.form.button.return = Return
 
 consumer.offer.error.ticker-null = Ticker can't be null
+consumer.offer.error.ticker-doesnt-match-regexp = Ticker must start with an "O", followed by 4 capital letters, a hyphen, and 5 numeric digits
 consumer.offer.error.duplicated-ticker = This ticker is taken
 consumer.offer.error.must-confirm = You must confirm before creating
 consumer.offer.error.rewardMin-null = The minimum reward can't be null

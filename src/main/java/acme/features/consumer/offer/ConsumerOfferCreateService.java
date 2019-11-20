@@ -83,6 +83,9 @@ public class ConsumerOfferCreateService implements AbstractCreateService<Consume
 		Date minimumDeadline;
 		boolean isConfirmed;
 
+		String regexTicker = "^O([A-Z]{4})-([0-9]{5})$";
+		Boolean tickerOK = entity.getTicker().matches(regexTicker);
+		errors.state(request, tickerOK, "ticker", "consumer.offer.error.ticker-doesnt-match-regexp", regexTicker);
 		errors.state(request, !entity.getTicker().isEmpty(), "ticker", "consumer.offer.error.ticker-null");
 		if (!errors.hasErrors("ticker")) {
 			existing = this.repository.findOneByTicker(entity.getTicker());

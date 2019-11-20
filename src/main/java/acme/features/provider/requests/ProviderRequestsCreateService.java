@@ -83,6 +83,9 @@ public class ProviderRequestsCreateService implements AbstractCreateService<Prov
 		Date minimumDeadline;
 		boolean isConfirmed;
 
+		String regexTicker = "^R([A-Z]{4})-([0-9]{5})$";
+		Boolean tickerOK = entity.getTicker().matches(regexTicker);
+		errors.state(request, tickerOK, "ticker", "provider.requests.error.ticker-doesnt-match-regexp", regexTicker);
 		errors.state(request, !entity.getTicker().isEmpty(), "ticker", "provider.requests.error.ticker-null");
 		if (!errors.hasErrors("ticker")) {
 			existing = this.repository.findOneByTicker(entity.getTicker());

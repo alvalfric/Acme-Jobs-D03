@@ -8,6 +8,7 @@ provider.requests.form.button.create = Create
 provider.requests.form.button.return = Return
 
 provider.requests.error.ticker-null = Ticker can't be null
+provider.requests.error.ticker-doesnt-match-regexp = Ticker must start with a "R", followed by 4 capital letters, a hyphen, and 5 numeric digits
 provider.requests.error.duplicated-ticker = This ticker is taken
 provider.requests.error.must-confirm = You must confirm before creating
 provider.requests.error.reward-null = The reward can't be null
